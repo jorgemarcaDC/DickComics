@@ -1,1 +1,448 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DICK COMICS: cómics originales, superhéroes y sátira.">
+  <title>DICK COMICS — Un universo propio</title>
+
+  <style>
+    :root {
+      --fondo: #111111;
+      --panel: #1b1b1b;
+      --blanco: #f5f1e9;
+      --rojo: #ff3434;
+      --gris: #aaa69f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--fondo);
+      color: var(--blanco);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .barra {
+      min-height: 76px;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 1000;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--rojo);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--rojo);
+    }
+
+    .portada {
+      min-height: 530px;
+      padding: 90px 9%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 90% 50%, #4b1717 0%, transparent 48%),
+        linear-gradient(120deg, #111 45%, #241414 100%);
+      border-bottom: 5px solid var(--rojo);
+    }
+
+    .portada-contenido {
+      max-width: 750px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      color: var(--rojo);
+      font-weight: bold;
+      letter-spacing: 3px;
+      font-size: 0.75rem;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.92;
+      letter-spacing: -5px;
+      margin-bottom: 28px;
+      font-weight: 1000;
+    }
+
+    h1 span {
+      color: var(--rojo);
+    }
+
+    .portada p {
+      color: #d0cbc3;
+      max-width: 470px;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .boton {
+      display: inline-block;
+      background: var(--rojo);
+      color: white;
+      padding: 13px 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      border: 2px solid var(--rojo);
+      transition: 0.2s;
+    }
+
+    .boton:hover {
+      background: transparent;
+    }
+
+    .seccion {
+      padding: 75px 7%;
+    }
+
+    .encabezado-seccion {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .descripcion {
+      color: var(--gris);
+      margin-top: 12px;
+      max-width: 600px;
+    }
+
+    .comic-destacado {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) 1.2fr;
+      background: var(--panel);
+      border: 1px solid #383838;
+    }
+
+    .portada-comic {
+      min-height: 330px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        radial-gradient(circle at 50% 45%, #8d2525, transparent 50%),
+        repeating-linear-gradient(
+          135deg, #241414 0px, #241414 8px,
+          #1c1111 8px, #1c1111 16px
+        );
+      border-right: 4px solid var(--rojo);
+    }
+
+    .portada-comic small {
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    .portada-comic strong {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 0.9;
+      font-weight: 1000;
+      text-transform: uppercase;
+      text-shadow: 3px 3px 0 #000;
+    }
+
+    .portada-comic strong span {
+      color: var(--rojo);
+    }
+
+    .info-comic {
+      padding: 40px;
+      align-self: center;
+    }
+
+    .info-comic h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .info-comic p {
+      color: #c0bbb4;
+      margin-bottom: 25px;
+    }
+
+    .aviso {
+      color: var(--gris);
+      font-size: 0.8rem;
+      margin-top: 18px;
+    }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .tarjeta {
+      min-height: 190px;
+      background: var(--panel);
+      padding: 25px;
+      border: 1px solid #333;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-4px);
+      border-color: var(--rojo);
+    }
+
+    .tarjeta .numero {
+      color: var(--rojo);
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .tarjeta h3 {
+      font-size: 1.35rem;
+      margin: 15px 0 8px;
+    }
+
+    .tarjeta p {
+      color: var(--gris);
+      font-size: 0.95rem;
+    }
+
+    .manifiesto {
+      background: var(--blanco);
+      color: #171717;
+      padding: 65px 9%;
+      text-align: center;
+    }
+
+    .manifiesto h2 {
+      max-width: 850px;
+      margin: 0 auto 20px;
+    }
+
+    .manifiesto p {
+      max-width: 650px;
+      margin: auto;
+      color: #45413c;
+    }
+
+    footer {
+      padding: 28px 7%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--gris);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 700px) {
+      .barra {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 14px;
+      }
+
+      .portada {
+        padding: 75px 7%;
+        min-height: 460px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .seccion {
+        padding: 55px 6%;
+      }
+
+      .comic-destacado {
+        grid-template-columns: 1fr;
+      }
+
+      .portada-comic {
+        min-height: 280px;
+        border-right: 0;
+        border-bottom: 4px solid var(--rojo);
+      }
+
+      .info-comic {
+        padding: 28px;
+      }
+
+      .tarjetas {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="barra">
+    <a class="logo" href="#inicio">DICK<span>COMICS</span></a>
+
+    <nav aria-label="Navegación principal">
+      <a href="#inicio">INICIO</a>
+      <a href="#comics">CÓMICS</a>
+      <a href="#universo">UNIVERSO</a>
+      <a href="#personajes">PERSONAJES</a>
+      <a href="#nosotros">NOSOTROS</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="portada" id="inicio">
+      <div class="portada-contenido">
+        <span class="etiqueta">CÓMICS INDEPENDIENTES · UNIVERSO ORIGINAL</span>
+
+        <h1>UN UNIVERSO.<br>MUCHAS FORMAS<br>DE <span>LIARLA.</span></h1>
+
+        <p>
+          Superhéroes, sátira e historias originales.
+          Esto acaba de empezar.
+        </p>
+
+        <a class="boton" href="#comics">Explorar los cómics ↘</a>
+      </div>
+    </section>
+
+    <section class="seccion" id="comics">
+      <div class="encabezado-seccion">
+        <div>
+          <span class="etiqueta">PRIMERA PUBLICACIÓN</span>
+          <h2>Entra en el universo.</h2>
+          <p class="descripcion">
+            Todo universo tiene un comienzo. Este es el nuestro.
+          </p>
+        </div>
+      </div>
+
+      <article class="comic-destacado">
+        <div class="portada-comic">
+          <small>DICK COMICS PRESENTA</small>
+          <strong>SUPER<span>DICKS</span></strong>
+          <small>N.º 001 · EL COMIENZO</small>
+        </div>
+
+        <div class="info-comic">
+          <span class="etiqueta">SERIE ORIGINAL</span>
+          <h3>Superdicks</h3>
+          <p>
+            La primera historia de este universo.
+            Una serie con humor, sátira y personajes que
+            todavía tienen mucho que demostrar.
+          </p>
+
+          <a class="boton" href="#proximamente">Leer próximamente</a>
+
+          <p class="aviso">
+            Estamos preparando la publicación de las páginas.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="seccion" id="universo">
+      <span class="etiqueta">MÁS ALLÁ DE UNA HISTORIA</span>
+      <h2>Un universo en construcción.</h2>
+      <p class="descripcion">
+        Diferentes personajes, diferentes historias y diferentes
+        tonos. Algunas te harán reír. Otras quizá te hagan pensar.
+        Todo forma parte de algo más grande.
+      </p>
+
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <span class="numero">01 / HISTORIAS</span>
+          <h3>Los cómics</h3>
+          <p>Series originales que irán dando forma al universo.</p>
+        </article>
+
+        <article class="tarjeta" id="personajes">
+          <span class="numero">02 / PERSONAJES</span>
+          <h3>Héroes y demás</h3>
+          <p>Conoce a los protagonistas, rivales y personajes secundarios.</p>
+        </article>
+
+        <article class="tarjeta">
+          <span class="numero">03 / CONTINUIDAD</span>
+          <h3>Todo está conectado</h3>
+          <p>Un mundo que crecerá con cada nueva publicación.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="manifiesto" id="nosotros">
+      <h2>No hace falta salvar el mundo para tener una historia que contar.</h2>
+      <p>
+        DICK COMICS es un proyecto independiente de cómics originales.
+        Un espacio para crear personajes, explorar ideas y construir
+        un universo propio, historia a historia.
+      </p>
+    </section>
+
+    <section class="seccion" id="proximamente">
+      <span class="etiqueta">ESTO ES SOLO EL PRINCIPIO</span>
+      <h2>Próximamente.</h2>
+      <p class="descripcion">
+        Nuevos cómics, nuevos personajes y nuevas historias.
+        El universo irá creciendo aquí.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 DICK COMICS · Proyecto independiente</span>
+    <a href="#inicio">Volver arriba ↑</a>
+  </footer>
+</body>
+</html>

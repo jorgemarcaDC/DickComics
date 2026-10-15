@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuperDicks | DICK COMICS</title>
+  <meta name="description" content="Descubre SuperDicks, una serie de cómics de DICK COMICS.">
+  <style>
+    :root {
+      --fondo: #151515;
+      --panel: #202020;
+      --blanco: #F4EFE5;
+      --rojo: #F93636;
+      --gris: #aaa69f;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--blanco);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .contenedor {
+      width: min(1080px, 90%);
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid #333;
+      padding: 20px 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .marca {
+      color: var(--rojo);
+      font-size: 1.5rem;
+      font-weight: 900;
+      text-decoration: none;
+      letter-spacing: -1px;
+    }
+
+    .enlaces {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .enlaces a {
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: bold;
+    }
+
+    .enlaces a:hover { color: var(--rojo); }
+
+    .volver {
+      display: inline-block;
+      margin-top: 35px;
+      color: var(--gris);
+      text-decoration: none;
+    }
+
+    .volver:hover { color: var(--rojo); }
+
+    .hero {
+      padding: 75px 0 65px;
+      border-bottom: 1px solid #333;
+    }
+
+    .etiqueta {
+      color: var(--rojo);
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: .95;
+      letter-spacing: -5px;
+      text-transform: uppercase;
+    }
+
+    h1 span { color: var(--rojo); }
+
+    .intro {
+      max-width: 650px;
+      color: var(--gris);
+      font-size: 1.1rem;
+    }
+
+    .seccion { padding: 55px 0; }
+
+    h2 {
+      margin: 0 0 20px;
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+
+    .descripcion {
+      max-width: 750px;
+      color: var(--gris);
+    }
+
+    .numero {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 30px;
+      align-items: center;
+      background: var(--panel);
+      border: 1px solid #333;
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    .portada {
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 25px;
+      background: var(--blanco);
+      color: var(--fondo);
+      border: 5px solid var(--rojo);
+      overflow: hidden;
+    }
+
+    .portada .logo {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 1000;
+      line-height: .85;
+      letter-spacing: -3px;
+    }
+
+    .portada .numero-portada {
+      font-size: .9rem;
+      font-weight: bold;
+    }
+
+    .estado {
+      display: inline-block;
+      padding: 5px 10px;
+      border: 1px solid var(--rojo);
+      color: var(--rojo);
+      font-size: .75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: var(--rojo);
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border: 2px solid var(--rojo);
+    }
+
+    .boton:hover {
+      background: transparent;
+      color: var(--rojo);
+    }
+
+    .boton.deshabilitado {
+      background: #333;
+      border-color: #444;
+      color: #aaa;
+      cursor: not-allowed;
+      margin-left: 8px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid #333;
+      color: var(--gris);
+      font-size: .85rem;
+    }
+
+    @media (max-width: 650px) {
+      .numero { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -2px; }
+      .hero { padding: 55px 0; }
+      .boton.deshabilitado { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="contenedor">
+      <a class="marca" href="../index.html">DICK COMICS</a>
+      <div class="enlaces">
+        <a href="../index.html">INICIO</a>
+        <a href="../comics.html">CÓMICS</a>
+        <a href="../index.html#universo">UNIVERSO</a>
+        <a href="../index.html#nosotros">NOSOTROS</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <a class="volver" href="../comics.html">← Volver al catálogo</a>
+
+    <section class="hero">
+      <div class="etiqueta">Una serie de DICK COMICS</div>
+      <h1>Super<span>Dicks</span></h1>
+      <p class="intro">
+        Superhéroes, situaciones absurdas y una buena dosis de sátira.
+        Este es el punto de partida de una serie que forma parte del
+        universo de DICK COMICS.
+      </p>
+    </section>
+
+    <section class="seccion">
+      <div class="etiqueta">La serie</div>
+      <h2>El comienzo de algo más grande.</h2>
+      <p class="descripcion">
+        SuperDicks es el primer paso de DICK COMICS en la construcción
+        de un universo propio. Su tono apuesta por el humor y la sátira,
+        con espacio para que ese universo pueda explorar otras historias
+        y tonos en el futuro.
+      </p>
+      <p class="descripcion">
+        Esta página irá creciendo junto con la serie. Aquí podrás
+        encontrar sus números y, cuando estén disponibles, acceder a ellos.
+      </p>
+    </section>
+
+    <section class="seccion" id="numeros">
+      <div class="etiqueta">Publicaciones</div>
+      <h2>Los números</h2>
+
+      <article class="numero">
+        <div class="portada">
+          <div class="logo">SUPER<br>DICKS</div>
+          <div class="numero-portada">DICK COMICS · N.º 01</div>
+        </div>
+
+        <div>
+          <div class="estado">En preparación</div>
+          <h2 style="margin-top: 15px;">SuperDicks #1</h2>
+          <p class="descripcion">
+            El primer número de la serie. Estamos preparando su publicación;
+            pronto podrás consultar aquí la información y acceder al cómic
+            cuando esté disponible.
+          </p>
+          <span class="boton deshabilitado" aria-disabled="true">
+            Próximamente
+          </span>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      DICK COMICS · Historias fuera de lo común.
+    </div>
+  </footer>
+
+</body>
+</html>
